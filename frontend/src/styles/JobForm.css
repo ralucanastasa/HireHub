@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.form-bg {
+    position: fixed;
+    color: #69493FFF;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+    z-index: 1000
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    max-height: 80vh;
+    padding: 30px;
+    overflow-y: auto;
+    z-index: 1001
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #69493FFF;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+    color: #676565;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #c23b12;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"],
+#closeBtn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 40px;
+    background-color: rgb(194, 59, 18);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px 0;
+    font-weight: 700;
+    width: 30%;
+    height: 45px;
+}
+
+#closeBtn {
+    background-color: #fffdfd;
+    color: #c23b12;
+    border-style: solid;
+    border-color: #c23b12;
+}
+
+input[type="submit"]:hover,
+#closeBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+h1 {
+    font-size: 1.8rem;
+}

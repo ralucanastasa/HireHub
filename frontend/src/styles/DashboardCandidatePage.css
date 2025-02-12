@@ -1,0 +1,238 @@
+.dashboard-container-candidate {
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 80vw;
+    height: 100vh;
+}
+
+.dashboard-header-candidate {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 20px;
+}
+
+.account-details {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.main-content-1 {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.dashboard-left-section,
+.dashboard-right-section {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+.dashboard-left-section::-webkit-scrollbar,
+.dashboard-right-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dashboard-left-section::-webkit-scrollbar-thumb,
+.dashboard-right-section::-webkit-scrollbar-thumb {
+    background-color: #c23b12;
+    border-radius: 4px;
+}
+
+.dashboard-left-section::-webkit-scrollbar-track,
+.dashboard-right-section::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}
+
+.application-status-list {
+    list-style: none;
+    padding: 0;
+}
+
+.application-status-item {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.application-status-item:hover {
+    transform: translateY(-5px);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.status-badge.pending {
+    color: #ffc107;
+}
+
+.status-badge.accepted {
+    color: #28a745;
+}
+
+.status-badge.rejected {
+    color: #dc3545;
+}
+
+.interview-schedule {
+    padding: 10px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.interview-item {
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resume-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.resume-upload input {
+    display: none;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #671f1f;
+    padding: 6px 26px;
+    border-radius: 6px;
+    border: dashed;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.upload-label:hover {
+    background-color: #a3a5a8;
+}
+
+.upload-button {
+    background-color: #312464C1;
+    color: white;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.upload-button:hover {
+    background-color: #312464EA;
+}
+
+.upload-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.resume-link {
+    gap: 8px;
+    text-decoration: none;
+    color: #e15b49;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.resume-link:hover {
+    color: #a71d2a;
+}
+
+.resume-icon {
+    color: #dc3545;
+}
+
+.change-password-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #dc9c79;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.change-password-button:hover {
+    background-color: #5d321a;
+}
+
+.change-password-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.change-password-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.save-password-button {
+    padding: 8px 12px;
+    background-color: #084D4AE2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-password-button:hover {
+    background-color: #084D4AFC;
+}
+
+.password-message {
+    color: red;
+    margin-top: 10px;
+}

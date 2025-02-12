@@ -1,0 +1,41 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <Languages>
+        <language minSize="80" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="frontend" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="bps-restpy" />
+            <item index="1" class="java.lang.String" itemvalue="astroid" />
+            <item index="2" class="java.lang.String" itemvalue="pylint" />
+            <item index="3" class="java.lang.String" itemvalue="pyotp" />
+            <item index="4" class="java.lang.String" itemvalue="webexteamssdk" />
+            <item index="5" class="java.lang.String" itemvalue="pyats" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="tests.system.testcases.test_system_load.lib.clean_setup.CleanSetup.failed" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

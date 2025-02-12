@@ -1,0 +1,193 @@
+.applications-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #0A4D72FF;
+}
+
+.applications-container h2 {
+    margin-top: 50px;
+}
+
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.app-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.app-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.applications {
+    margin-top: 10px;
+}
+
+.application-item {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.application-item a {
+    color: #d0548c;
+    text-decoration: none;
+}
+
+.application-item a:hover {
+    text-decoration: underline;
+}
+
+.application-actions {
+    margin-top: 10px;
+}
+
+.application-actions select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+    color: #444;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.application-actions select:focus {
+    border-color: #dc9c79;
+    box-shadow: 0 0 5px rgba(220, 156, 121, 0.5);
+}
+
+.application-actions select:hover {
+    border-color: #dc9c79;
+}
+
+.application-actions select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23444" d="M2 0L0 2h4z"/></svg>') no-repeat right 8px center;
+    background-size: 8px 10px;
+    padding-right: 30px;
+}
+
+.see-more-button {
+    background-color: rgba(100, 38, 66, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.see-more-button:hover {
+    background-color: #642642;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-applications {
+    margin-top: 20px;
+}
+
+.modal-application-item {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.modal-application-item a {
+    color: #dc9c79;
+    text-decoration: none;
+}
+
+.modal-application-item a:hover {
+    text-decoration: underline;
+}
+
+
+.set-interview-button {
+    background-color: #113C65FF;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+    margin-top: 10px;
+}
+
+.set-interview-button:hover {
+    background-color: #071a2c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.set-interview-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.set-interview-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgb(7, 26, 44);
+}
