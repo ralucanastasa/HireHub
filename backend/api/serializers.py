@@ -63,7 +63,7 @@ class JobApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobApplication
         fields = ['id', 'job', 'job_title', 'company_name', 'user', 'name', 'email', 'resume', 'status',
-                  'interview_scheduled']
+                  'interview_scheduled', 'rejection_reason']
         extra_kwargs = {'job': {'read_only': True}}
 
     def create(self, validated_data):
@@ -121,7 +121,7 @@ class NoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Note
-        fields = ["id", "user_email", "full_name", "content", "created_at"]
+        fields = ["id", "user_email", "full_name", "content", "created_at", "updated_at"]
 
     @staticmethod
     def get_full_name(obj):

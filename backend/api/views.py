@@ -12,6 +12,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import get_object_or_404
@@ -124,11 +125,14 @@ class UpdateApplicationStatusView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
         new_status = request.data.get("status")
+        rejection_reason = request.data.get("rejection_reason", "")
 
         if new_status not in ["pending", "accepted", "rejected"]:
             return Response({"error": "Invalid status"}, status=status.HTTP_400_BAD_REQUEST)
 
         instance.status = new_status
+        if new_status == "rejected":
+            instance.rejection_reason = rejection_reason
         instance.save()
         serializer = self.get_serializer(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -538,8 +542,6 @@ class CandidateProfileView(APIView):
         candidate_profile, _ = CandidateProfile.objects.get_or_create(user=request.user)
 
         for key, value in request.data.items():
-            if key in ["name", "email"]:
-                continue
             if key == "resume":
                 candidate_profile.resume = value
             else:

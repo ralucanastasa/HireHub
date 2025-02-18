@@ -144,6 +144,7 @@ class JobApplication(models.Model):
         default='pending'
     )
     interview_scheduled = models.BooleanField(default=False)
+    rejection_reason = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} - {self.job.title}"
@@ -151,6 +152,7 @@ class JobApplication(models.Model):
 
 class InterviewInvitation(models.Model):
     meeting_link = models.URLField()
+    posted_date = models.DateTimeField(auto_now_add=True)
     application = models.ForeignKey('JobApplication', on_delete=models.CASCADE)
     interviewers = models.ManyToManyField('Interviewer')
     candidate_email = models.EmailField()
@@ -166,6 +168,11 @@ class InterviewInvitation(models.Model):
 
     def __str__(self):
         return f"Invitation for {self.application} - Status: {self.status}"
+
+    class Meta:
+        verbose_name = "InterviewInvitation"
+        verbose_name_plural = "InterviewInvitation"
+        ordering = ['-posted_date']
 
 
 class Note(models.Model):
