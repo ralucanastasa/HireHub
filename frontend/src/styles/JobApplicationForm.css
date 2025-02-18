@@ -1,19 +1,18 @@
-.form-bg {
+.form-bg-app-job {
     position: fixed;
-    color: #69493FFF;
-    top: 30px;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow-y: auto;
     z-index: 1000;
+    padding: 20px;
 }
 
-.form-container {
+.form-container-app-job {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -23,23 +22,22 @@
     padding: 30px;
     overflow-y: auto;
     z-index: 1001;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .form-container-app-job {
+        width: 95%;
+        max-height: 90vh;
+        padding: 20px;
+        border-radius: 10px;
+    }
 }
 
 .title {
     text-align: center;
     margin-bottom: 20px;
     color: #69493FFF;
-}
-
-.body {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    font-weight: 600;
-    margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -52,6 +50,10 @@ input[type="file"] {
     width: 100%;
     transition: border-color 0.3s;
     color: #676565;
+}
+
+input[type="file"] {
+    cursor: pointer;
 }
 
 input[type="text"]:focus,
@@ -70,7 +72,7 @@ input[type="submit"],
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     margin: 20px 0;
     font-weight: 700;
     width: 30%;
@@ -80,24 +82,56 @@ input[type="submit"],
 #closeBtn {
     background-color: #fffdfd;
     color: #c23b12;
-    border-style: solid;
-    border-color: #c23b12;
+    border: 2px solid #c23b12;
 }
 
 input[type="submit"]:hover,
 #closeBtn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .form-container-app-job {
+        width: 90%;
+        max-height: 85vh;
+        padding: 20px;
+    }
+
+    .title h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="file"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .use-resume-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
 
 .buttons-container {
     display: flex;
-    justify-content: right;
-    gap: 5px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-h1 {
-    font-size: 1.8rem;
+.use-resume-btn {
+    background-color: #312464C1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .or-divider {
@@ -105,18 +139,6 @@ h1 {
     font-weight: bold;
     margin: 10px 0;
     color: #888;
-}
-
-.use-resume-btn {
-    background-color: #312464C1;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-    transition: background-color 0.3s ease;
 }
 
 .use-resume-btn:hover {
@@ -137,4 +159,19 @@ h1 {
 
 .selected-resume a:hover {
     color: #a71d2a;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-container-app-job {
+    animation: slideIn 0.3s ease-out;
 }

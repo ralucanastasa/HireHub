@@ -19,6 +19,10 @@ const ApplicationsPage = () => {
     const currentApplications = jobs.slice(indexOfFirstJob, indexOfLastJob);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const [isRejectionModalOpen, setIsRejectionModalOpen] = useState(false);
+    const [rejectionReason, setRejectionReason] = useState("");
+    const [selectedRejectionApplication, setSelectedRejectionApplication] = useState(null);
+
 
     useEffect(() => {
         fetchJobs();
@@ -28,22 +32,52 @@ const ApplicationsPage = () => {
         checkScheduledInterviews();
     }, [applications]);
 
-    const handleStatusChange = (appId, newStatus) => {
-        api.patch(`/api/applications/${appId}/`, { status: newStatus })
-            .then(() => {
-                updateApplicationStatus(appId, newStatus);
-            })
-            .catch((error) => {
-                console.error('Error updating application status:', error);
-            });
+    const handleStatusChange = (app, newStatus) => {
+        if (newStatus === "rejected") {
+            openRejectionModal(app);
+        } else {
+            api.patch(`/api/applications/${app.id}/`, { status: newStatus })
+                .then(() => {
+                    updateApplicationStatus(app.id, newStatus);
+                })
+                .catch((error) => {
+                    console.error('Error updating application status:', error);
+                });
+        }
     };
 
-    const updateApplicationStatus = (appId, newStatus) => {
+    const openRejectionModal = (app) => {
+        setSelectedRejectionApplication(app);
+        setIsRejectionModalOpen(true);
+    };
+
+    const handleRejectApplication = () => {
+        if (!rejectionReason.trim()) {
+            alert("Please provide a rejection reason.");
+            return;
+        }
+
+        api.patch(`/api/applications/${selectedRejectionApplication.id}/`, {
+            status: "rejected",
+            rejection_reason: rejectionReason
+        })
+        .then(() => {
+            updateApplicationStatus(selectedRejectionApplication.id, "rejected", rejectionReason);
+            setIsRejectionModalOpen(false);
+            setRejectionReason(""); // Resetăm motivul
+            setSelectedRejectionApplication(null);
+        })
+        .catch((error) => {
+            console.error("Error updating application status:", error);
+        });
+    };
+
+    const updateApplicationStatus = (appId, newStatus, rejectionReason = null) => {
         setApplications((prevApplications) => {
             const updatedApplications = { ...prevApplications };
             for (const jobId in updatedApplications) {
                 updatedApplications[jobId] = updatedApplications[jobId].map((app) =>
-                    app.id === appId ? { ...app, status: newStatus } : app
+                    app.id === appId ? { ...app, status: newStatus, rejection_reason: rejectionReason } : app
                 );
             }
             return updatedApplications;
@@ -159,7 +193,7 @@ const ApplicationsPage = () => {
                                             <a href={app.resume} target="_blank" rel="noopener noreferrer"> View Resume</a>
                                             <div className="application-actions">
                                                 {app.status === 'pending' ? (
-                                                    <select onChange={(e) => handleStatusChange(app.id, e.target.value)} value={app.status}>
+                                                    <select onChange={(e) => handleStatusChange(app, e.target.value)} value={app.status}>
                                                         <option value="pending">Pending</option>
                                                         <option value="accepted">Accept</option>
                                                         <option value="rejected">Reject</option>
@@ -205,6 +239,23 @@ const ApplicationsPage = () => {
             />
             {isSetInterviewOpen && (
                 <SetInterviewForm application={selectedApplication} onClose={closeSetInterview} />
+            )}
+            {isRejectionModalOpen && (
+                <div className="modal-overlay-rejected-app">
+                    <div className="modal-content-rejected-app">
+                        <h3>Enter Rejection Reason</h3>
+                        <textarea
+                            placeholder="Write the reason for rejection..."
+                            value={rejectionReason}
+                            onChange={(e) => setRejectionReason(e.target.value)}
+                            rows={4}
+                        />
+                        <div className="modal-actions-rejected-app">
+                            <button className="submit-button-rejected-app" onClick={handleRejectApplication}>Submit</button>
+                            <button className="cancel-button-rejected-app" onClick={() => setIsRejectionModalOpen(false)}>Cancel</button>
+                        </div>
+                    </div>
+                </div>
             )}
 
         </div>

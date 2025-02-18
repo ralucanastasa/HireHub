@@ -32,15 +32,15 @@ function App() {
             <div className="main-content">
                 <Routes>
                     <Route path="/add-job" element={<ProtectedRoute><AddJobPage /></ProtectedRoute>} />
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/logout" element={<Logout />} />
-                    <Route path="/register" element={<RegisterAndLogout />} />
-                    <Route path="/candidate-jobs" element={<CandidateJobsPage />} />
-                    <Route path="/applications" element={<ApplicationsPage />} />
-                    <Route path="/candidate-dashboard" element={<DashboardCandidatePage />} />
-                    <Route path="/employer-dashboard" element={<DashboardEmployerPage />} />
-                    <Route path="/interviewer-dashboard" element={<DashboardInterviewerPage />} />
+                    <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+                    <Route path="/login" element={<ProtectedRoute><LoginPage /></ProtectedRoute>} />
+                    <Route path="/logout" element={<ProtectedRoute><Logout /></ProtectedRoute>} />
+                    <Route path="/register" element={<ProtectedRoute><RegisterAndLogout /></ProtectedRoute>} />
+                    <Route path="/candidate-jobs" element={<ProtectedRoute><CandidateJobsPage /></ProtectedRoute>} />
+                    <Route path="/applications" element={<ProtectedRoute><ApplicationsPage /></ProtectedRoute>} />
+                    <Route path="/candidate-dashboard" element={<ProtectedRoute><DashboardCandidatePage /></ProtectedRoute>} />
+                    <Route path="/employer-dashboard" element={<ProtectedRoute><DashboardEmployerPage /></ProtectedRoute>} />
+                    <Route path="/interviewer-dashboard" element={<ProtectedRoute><DashboardInterviewerPage /></ProtectedRoute>} />
                     <Route path="/account/:token" element={<ActivateInterviewerPage />} />
                     <Route path="*" element={<NotFound />}></Route>
                 </Routes>

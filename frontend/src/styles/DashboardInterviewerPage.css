@@ -165,3 +165,54 @@
     margin-left: 10px;
 }
 
+.note-timestamp {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-interviewer-container {
+        width: 90vw;
+    }
+
+    .account-details {
+        width: 100%;
+    }
+
+    .interviews-list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-interviewer-container {
+        padding: 10px;
+    }
+
+    .interview-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .change-password-button {
+        width: 100%;
+    }
+
+    .change-password-form input {
+        font-size: 14px;
+    }
+
+    .main-content-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 60px;
+        overflow-y: auto;
+    }
+}
+

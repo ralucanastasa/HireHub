@@ -8,6 +8,10 @@ import { Box, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from
 import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import {ACCESS_TOKEN} from "../constants.js";
+import { MdSpaceDashboard } from "react-icons/md";
+import { FaBriefcase } from "react-icons/fa";
+import { FiFileText } from "react-icons/fi";
+
 
 function Navbar() {
     const [openMenu, setOpenMenu] = useState(false);
@@ -33,34 +37,34 @@ function Navbar() {
         ...(role === "Employer" ? [
             {
                 text: "Dashboard",
-                icon: <FaHome />,
+                icon: <MdSpaceDashboard />,
                 route: "/employer-dashboard",
             },
             {
                 text: "Jobs",
-                icon: <IoMdContact />,
+                icon: <FaBriefcase />,
                 route: "/add-job",
             },
             {
                 text: "Applications",
-                icon: <FaHome />,
+                icon: <FiFileText />,
                 route: "/applications",
             }
         ] : role === "Candidate" ? [
             {
                 text: "Dashboard",
-                icon: <FaHome />,
+                icon: <MdSpaceDashboard />,
                 route: "/candidate-dashboard",
             },
             {
                 text: "Jobs",
-                icon: <FaHome />,
+                icon: <FaBriefcase />,
                 route: "/candidate-jobs",
             },
         ] : role === "Interviewer" ? [
             {
                 text: "Dashboard",
-                icon: <FaHome />,
+                icon: <MdSpaceDashboard />,
                 route: "/interviewer-dashboard",
             },
         ] : []),

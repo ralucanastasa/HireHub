@@ -17,6 +17,7 @@ const DashboardCandidatePage = () => {
         confirm_password: "",
     });
     const [passwordMessage, setPasswordMessage] = useState("");
+    const [selectedRejectedApplication, setSelectedRejectedApplication] = useState(null);
 
     useEffect(() => {
         fetchApplications();
@@ -80,6 +81,16 @@ const DashboardCandidatePage = () => {
         }
     };
 
+    const handleOpenRejectionModal = (app) => {
+        if (app.status === "rejected") {
+            setSelectedRejectedApplication(app);
+        }
+    };
+
+    const handleCloseRejectionModal = () => {
+        setSelectedRejectedApplication(null);
+    };
+
     return (
         <div className="dashboard-container-candidate">
             <div className="dashboard-header-candidate">
@@ -90,9 +101,7 @@ const DashboardCandidatePage = () => {
                 <h2>Account Details</h2>
                 {accountDetails ? (
                     <div className="details">
-                        <p><strong>Name:</strong> {accountDetails.name}</p>
-                        <p><strong>Email:</strong> {accountDetails.email}</p>
-                        {["phone", "location"].map((field) => (
+                        {["name", "email", "phone", "location"].map((field) => (
                             <p key={field}>
                                 <strong>{field.charAt(0).toUpperCase() + field.slice(1)}: </strong>
                                 {editingField === field ? (
@@ -180,7 +189,12 @@ const DashboardCandidatePage = () => {
                     <ul className="application-status-list">
                         {applications.length > 0 ? (
                             applications.map((app) => (
-                                <li key={app.id} className="application-status-item">
+                                <li
+                                    key={app.id}
+                                    className="application-status-item"
+                                    onClick={() => handleOpenRejectionModal(app)}
+                                    style={{ cursor: app.status === "rejected" ? "pointer" : "default" }}
+                                >
                                     <p><strong>Job:</strong> {app.job_title}</p>
                                     <p><strong>Company:</strong> {app.company_name}</p>
                                     <p>
@@ -189,6 +203,7 @@ const DashboardCandidatePage = () => {
                                             {app.status.charAt(0).toUpperCase() + app.status.slice(1)}
                                         </span>
                                     </p>
+                                    {app.status === "rejected" && <p><em>Click to see rejection reason</em></p>}
                                 </li>
                             ))
                         ) : (
@@ -196,6 +211,16 @@ const DashboardCandidatePage = () => {
                         )}
                     </ul>
                 </div>
+                {selectedRejectedApplication && (
+                    <div className="modal-overlay-rejected">
+                        <div className="modal-content-rejected">
+                            <h3>Rejection Reason</h3>
+                            <p>{selectedRejectedApplication.rejection_reason || "No reason provided"}</p>
+                            <button onClick={handleCloseRejectionModal}>Close</button>
+                        </div>
+                    </div>
+                )}
+
 
                 <div className="dashboard-right-section">
                     <h3>Interview Schedule</h3>

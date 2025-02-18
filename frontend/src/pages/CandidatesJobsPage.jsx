@@ -29,6 +29,8 @@ const CandidateJobsPage = () => {
     const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const [showFilters, setShowFilters] = useState(false);
+
 
     useEffect(() => {
         getJobs();
@@ -150,6 +152,24 @@ const CandidateJobsPage = () => {
         getJobs();
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (showFilters && !event.target.closest(".filter-sidebar") && !event.target.closest(".toggle-filters-btn")) {
+                setShowFilters(false);
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [showFilters]);
+
+
+    const toggleFilters = () => {
+        setShowFilters(!showFilters);
+    };
+
     const capitalizeWords = (text) => {
         return text
             .toLowerCase()
@@ -160,7 +180,10 @@ const CandidateJobsPage = () => {
     return (
         <div className="jobs-container">
             <div className="main-content-jobs">
-                <div className="filter-sidebar">
+                <button className="toggle-filters-btn" onClick={toggleFilters}>
+                    {showFilters ? "Hide Filters" : "Show Filters"}
+                </button>
+                <div className={`filter-sidebar ${showFilters ? "active" : ""}`}>
                     <h3>Filters</h3>
                     {Object.keys(filters).map((field) => (
                         <div key={field} className="filter-group">

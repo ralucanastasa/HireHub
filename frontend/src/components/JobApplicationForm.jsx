@@ -82,8 +82,8 @@ const JobApplicationForm = ({ job, onClose, onSuccess }) => {
     };
 
     return (
-        <div className="form-bg">
-            <div className="form-container" ref={formContainerRef}>
+        <div className="form-bg-app-job">
+            <div className="form-container-app-job" ref={formContainerRef}>
                 <div className="title">
                     <h1>Apply for {job.title}</h1>
                 </div>

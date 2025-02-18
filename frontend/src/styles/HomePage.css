@@ -1,1 +1,161 @@
+.home-container {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #113c65;
+    background: #f9f9f9;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.hero-section {
+    background: linear-gradient(135deg, #0A4D72, #084D4A);
+    color: white;
+    padding: 60px 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 0 0 50% 50% / 10%;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-title span {
+    color: #FFD700;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.info-icon {
+    font-size: 3rem;
+    color: #084D4A;
+    margin-bottom: 15px;
+}
+
+.info-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.home-footer {
+    background: #0A4D72;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .info-section {
+        gap: 30px;
+        padding: 40px 15px;
+    }
+
+    .info-box {
+        width: 90%;
+        max-width: 350px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 15px;
+        border-radius: 0 0 30% 30% / 10%;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 15px;
+    }
+
+    .info-box {
+        width: 100%;
+        max-width: 320px;
+        padding: 20px;
+    }
+
+    .info-icon {
+        font-size: 2.5rem;
+    }
+
+    .home-footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .info-box {
+        width: 90%;
+        padding: 18px;
+    }
+
+    .info-icon {
+        font-size: 2rem;
+    }
+
+    .info-box h2 {
+        font-size: 1.3rem;
+    }
+}

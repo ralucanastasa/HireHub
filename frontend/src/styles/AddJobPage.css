@@ -43,7 +43,7 @@
     background-color: #0A4D72FF;
 }
 
-.main-content {
+.main-content-jobs-2 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -230,4 +230,98 @@
 .pagination .active {
     background-color: #004080;
     font-weight: bold;
+}
+
+@media (min-width: 769px) {
+    .toggle-filters-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-jobs-2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-button,
+    .delete-button {
+        padding: 4px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #333;
+        transition: opacity 0.2s;
+    }
+
+    .header-actions {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    .jobs-container {
+        padding: 10px;
+    }
+
+    .job-card {
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .job-title {
+        font-size: 18px;
+    }
+
+    .open-form {
+        width: 90%;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .job-actions {
+        top: 5px;
+    }
+
+    .filter-sidebar {
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .filter-sidebar.active {
+        display: block;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .toggle-filters-btn {
+        display: block;
+        background: #69493F;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+        width: 90%;
+    }
 }

@@ -251,15 +251,27 @@ const DashboardInterviewerPage = () => {
 
                         <div className="notes-section">
                             <h4>Notes</h4>
-                            {notes.map((note) => (
-                                <div key={note.id} className="note-item">
-                                    <p><strong>{note.full_name}</strong>: {note.content}</p>
-                                    <div className="note-actions">
-                                        <button onClick={() => handleEditNote(note)}><FaEdit /></button>
-                                        <button onClick={() => handleDeleteNote(note.id)}><FaTrash /></button>
+                            {notes.map((note) => {
+                                const createdAt = new Date(note.created_at).toLocaleString();
+                                const updatedAt = new Date(note.updated_at).toLocaleString();
+                                const isUpdated = note.created_at !== note.updated_at;
+
+                                return (
+                                    <div key={note.id} className="note-item">
+                                        <p>
+                                            <strong>{note.full_name}</strong>: {note.content}
+                                        </p>
+                                        <small className="note-timestamp">
+                                            Created: {createdAt}
+                                            {isUpdated && <span> | Last updated: {updatedAt}</span>}
+                                        </small>
+                                        <div className="note-actions">
+                                            <button onClick={() => handleEditNote(note)}><FaEdit /></button>
+                                            <button onClick={() => handleDeleteNote(note.id)}><FaTrash /></button>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
 
                             <textarea
                                 placeholder="Add or edit your note here..."

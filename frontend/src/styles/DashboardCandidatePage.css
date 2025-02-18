@@ -8,7 +8,7 @@
     max-width: 1200px;
     margin: 0 auto;
     width: 80vw;
-    height: 100vh;
+    height: 150vh;
 }
 
 .dashboard-header-candidate {
@@ -235,4 +235,90 @@
 .password-message {
     color: red;
     margin-top: 10px;
+}
+.modal-overlay-rejected {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-rejected {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+
+.modal-content-rejected h3 {
+    margin-bottom: 10px;
+}
+
+.modal-content-rejected p {
+    margin: 5px 0;
+}
+
+.modal-content-rejected button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal-content-rejected button:hover {
+    background: #c9302c;
+}
+
+
+@media (max-width: 1024px) {
+    .dashboard-container-candidate {
+        width: 90vw;
+    }
+
+    .account-details {
+        width: 100%;
+    }
+
+    .interviews-list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container-candidate {
+        padding: 10px;
+    }
+
+    .interview-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .change-password-button {
+        width: 100%;
+    }
+
+    .change-password-form input {
+        font-size: 14px;
+    }
+
+    .main-content-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 60px;
+        overflow-y: auto;
+    }
 }

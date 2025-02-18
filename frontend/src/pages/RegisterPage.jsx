@@ -7,8 +7,6 @@ import {ACCESS_TOKEN, REFRESH_TOKEN} from "../constants.js";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
-
-
 function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -138,7 +136,6 @@ function RegisterPage() {
                             <option>Select role</option>
                             <option value="Candidate">Candidate</option>
                             <option value="Employer">Employer</option>
-                            <option value="Interviewer">Interviewer</option>
                         </select>
                         <RiArrowDropDownLine className="icon" />
                     </div>

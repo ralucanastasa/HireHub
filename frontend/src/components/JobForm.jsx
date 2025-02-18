@@ -51,6 +51,7 @@ function JobForm({ closeForm, editingJob }) {
             return;
         }
 
+        const formattedClosingDate = closingDate.split("T")[0];
         const jobData = {
             title,
             company_name: companyName,
@@ -59,7 +60,7 @@ function JobForm({ closeForm, editingJob }) {
             work_type: workType,
             level,
             employment_type: employmentType,
-            closing_date: closingDate,
+            closing_date: formattedClosingDate,
             category,
         };
 
@@ -85,8 +86,8 @@ function JobForm({ closeForm, editingJob }) {
 
 
     return (
-        <div className="form-bg">
-            <div className="form-container" ref={formContainerRef}>
+        <div className="form-bg-job">
+            <div className="form-container-job" ref={formContainerRef}>
                 <div className="title">
                     <h1>{editingJob ? "Edit Job" : "Add a Job"}</h1>
                 </div>
@@ -100,7 +101,7 @@ function JobForm({ closeForm, editingJob }) {
                             <option value="accounting">Accounting</option>
                             <option value="marketing">Marketing</option>
                             <option value="sales">Sales</option>
-                            <option value="logistics">Logistics</option>
+                            <option value="administration">Administration</option>
                         </select>
 
                         <label htmlFor="title">Title:</label>

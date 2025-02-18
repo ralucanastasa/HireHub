@@ -170,3 +170,69 @@
 .register-link p a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 1024px) {
+    .login-container {
+        width: 80%;
+        padding: 50px 60px;
+    }
+
+    .header-title span {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 100%;
+        padding: 40px 90px;
+    }
+
+    .header-title span {
+        font-size: 3rem;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 15px 40px 15px 15px;
+    }
+
+    .login-container button {
+        font-size: 14px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 100%;
+        padding: 30px 50px;
+    }
+
+    .header-title span {
+        font-size: 2.5rem;
+    }
+
+    .login-container h1 {
+        font-size: 28px;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 12px 35px 12px 12px;
+    }
+
+    .input-box .icon {
+        font-size: 14px;
+        right: 15px;
+    }
+
+    .login-container button {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .register-link p {
+        font-size: 13px;
+    }
+}

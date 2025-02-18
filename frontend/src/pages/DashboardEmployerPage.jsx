@@ -275,11 +275,23 @@ const DashboardEmployerPage = () => {
                         <div className="notes-section">
                             <h4>Interview Notes</h4>
                             {notes.length > 0 ? (
-                                notes.map((note) => (
-                                    <div key={note.id} className="note-item">
-                                        <p><strong>{note.full_name}</strong>: {note.content}</p>
-                                    </div>
-                                ))
+                                notes.map((note) => {
+                                    const createdAt = new Date(note.created_at).toLocaleString();
+                                    const updatedAt = new Date(note.updated_at).toLocaleString();
+                                    const isUpdated = note.created_at !== note.updated_at;
+
+                                    return (
+                                        <div key={note.id} className="note-item">
+                                            <p>
+                                                <strong>{note.full_name}</strong>: {note.content}
+                                            </p>
+                                            <small className="note-timestamp">
+                                                Created: {createdAt}
+                                                {isUpdated && <span> | Last updated: {updatedAt}</span>}
+                                            </small>
+                                        </div>
+                                    );
+                                })
                             ) : (
                                 <p>No notes available for this interview.</p>
                             )}
